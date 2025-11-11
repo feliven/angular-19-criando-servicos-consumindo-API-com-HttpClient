@@ -25,32 +25,32 @@ import { LivroService } from '../../services/livro.service';
   styleUrl: './lista-livros.component.css',
 })
 export class ListaLivrosComponent implements OnInit {
-  generosComLivros: { genero: GeneroLiterario; livros: Livro[] }[] = [];
-
-  generos: GeneroLiterario[] = [
-    { id: 'romance', value: 'Romance' },
-    { id: 'misterio', value: 'Mistério' },
-    { id: 'fantasia', value: 'Fantasia' },
-    { id: 'ficcao-cientifica', value: 'Ficção Científica' },
-    { id: 'tecnicos', value: 'Técnicos' },
-  ];
-
   listaLivros: Livro[] = [];
+
+  generosComLivros: { genero: GeneroLiterario; livros: Livro[] }[] = [];
 
   constructor(private livroService: LivroService) {}
 
   ngOnInit() {
-    this.livroService.getLivros().subscribe((livrosDaAPI: Livro[]) => {
-      this.listaLivros = livrosDaAPI;
-      console.log(this.listaLivros);
-    });
-    this.organizarLivrosPorGenero();
-  }
-
-  organizarLivrosPorGenero() {
-    this.generosComLivros = this.generos.map((genero) => ({
-      genero,
-      livros: this.listaLivros.filter((livro) => livro.genero.id === genero.id),
-    }));
+    this.livroService
+      .organizarLivrosPorGenero()
+      .subscribe((livrosPorGenero) => {
+        this.generosComLivros = this.livroService.generos.map((genero) => ({
+          genero,
+          livros: livrosPorGenero.get(genero.id) ?? [],
+        }));
+      });
   }
 }
+
+// this.livroService.getLivros().subscribe((livrosDaAPI: Livro[]) => {
+//   this.listaLivros = livrosDaAPI;
+//   console.log(this.listaLivros);
+// });
+
+// organizarLivrosPorGenero() {
+//   this.generosComLivros = this.generos.map((genero) => ({
+//     genero,
+//     livros: this.listaLivros.filter((livro) => livro.genero.id === genero.id),
+//   }));
+// }
