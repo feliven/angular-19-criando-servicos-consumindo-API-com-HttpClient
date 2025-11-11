@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { LivroService } from '../../services/livro.service';
-import { Livro } from '../../componentes/livro/livro';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+import { Livro } from '../../componentes/livro/livro';
+import { LivroService } from '../../services/livro.service';
+import { FormularioComponent } from '../../componentes/formulario/formulario.component';
+
 @Component({
   selector: 'app-criar-livro',
-  imports: [],
+  imports: [FormularioComponent],
   templateUrl: './criar-livro.component.html',
   styleUrl: './criar-livro.component.css',
 })
