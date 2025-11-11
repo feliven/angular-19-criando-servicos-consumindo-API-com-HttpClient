@@ -1,0 +1,40 @@
+.cabecalho {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.generos {
+  display: flex;
+  flex-direction: column;
+  padding: 48px 160px;
+}
+
+.livros-genero {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.romance {
+  background-color: #e8ffff;
+}
+
+.misterio {
+  background-color: #e9ffe3;
+}
+
+.fantasia {
+  background-color: #ffe3e3;
+}
+
+.ficcao-cientifica {
+  background-color: #fff0fa;
+}
+
+.tecnicos {
+  background-color: #fff1e4;
+}
