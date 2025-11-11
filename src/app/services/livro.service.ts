@@ -11,7 +11,7 @@ export class LivroService {
 
   constructor(private http: HttpClient) {}
 
-  public get livros() {
+  getLivros() {
     return this.http.get<Livro[]>(this.enderecoAPI);
   }
 }
