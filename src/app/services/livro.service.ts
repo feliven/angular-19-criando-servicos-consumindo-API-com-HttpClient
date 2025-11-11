@@ -24,8 +24,12 @@ export class LivroService implements OnInit {
     this.organizarLivrosPorGenero();
   }
 
-  getLivros() {
+  getLivros(): Observable<Livro[]> {
     return this.http.get<Livro[]>(this.enderecoAPI);
+  }
+
+  setLivro(livro: Livro): Observable<Livro> {
+    return this.http.post<Livro>(this.enderecoAPI, livro);
   }
 
   organizarLivrosPorGenero(): Observable<Map<string, Livro[]>> {
