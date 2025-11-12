@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 import { Livro } from './livro';
 import { BotaoComponent } from '../botao/botao.component';
@@ -13,6 +13,7 @@ import { LivroService } from '../../services/livro.service';
 })
 export class LivroComponent {
   livro = input.required<Livro>();
+  idLivroASerExcluido = output<string>();
 
   constructor(private livroService: LivroService) {}
 
@@ -27,5 +28,9 @@ export class LivroComponent {
     });
 
     // this.livro().favorito = !this.livro().favorito;
+  }
+
+  emitirOutputExcluir() {
+    this.idLivroASerExcluido.emit(this.livro().id);
   }
 }

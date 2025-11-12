@@ -46,6 +46,10 @@ export class LivroService implements OnInit {
     return this.http.put<Livro>(`${this.enderecoAPI}/${livro.id}`, livro);
   }
 
+  deleteLivro(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.enderecoAPI}/${id}`);
+  }
+
   organizarLivrosPorGenero(): Observable<Map<string, Livro[]>> {
     return this.getLivros().pipe(
       map((livros: Livro[]) => {

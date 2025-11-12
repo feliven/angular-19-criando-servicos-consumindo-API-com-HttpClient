@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 
 import { BotaoComponent } from '../../componentes/botao/botao.component';
 import { DivisorComponent } from '../../componentes/divisor/divisor.component';
@@ -9,6 +9,7 @@ import { LivroComponent } from '../../componentes/livro/livro.component';
 import { SubtituloComponent } from '../../componentes/subtitulo/subtitulo.component';
 import { TituloComponent } from '../../componentes/titulo/titulo.component';
 import { LivroService } from '../../services/livro.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-livros',
@@ -29,7 +30,7 @@ export class ListaLivrosComponent implements OnInit {
 
   generosComLivros: { genero: GeneroLiterario; livros: Livro[] }[] = [];
 
-  constructor(private livroService: LivroService) {}
+  constructor(private livroService: LivroService, private router: Router) {}
 
   ngOnInit() {
     this.livroService
@@ -40,6 +41,12 @@ export class ListaLivrosComponent implements OnInit {
           livros: livrosPorGenero.get(genero.id) ?? [],
         }));
       });
+  }
+
+  excluirLivro(id: string) {
+    this.livroService.deleteLivro(id).subscribe(() => {
+      this.router.navigate(['/']);
+    });
   }
 }
 
