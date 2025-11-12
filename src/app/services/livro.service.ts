@@ -42,6 +42,10 @@ export class LivroService implements OnInit {
     });
   }
 
+  putLivro(livro: Livro): Observable<Livro> {
+    return this.http.put<Livro>(`${this.enderecoAPI}/${livro.id}`, livro);
+  }
+
   organizarLivrosPorGenero(): Observable<Map<string, Livro[]>> {
     return this.getLivros().pipe(
       map((livros: Livro[]) => {

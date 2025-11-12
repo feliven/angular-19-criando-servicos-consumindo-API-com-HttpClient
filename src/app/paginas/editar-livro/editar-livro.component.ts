@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { FormularioComponent } from '../../componentes/formulario/formulario.component';
 import { Livro } from '../../componentes/livro/livro';
@@ -16,11 +16,15 @@ export class EditarLivroComponent implements OnInit {
 
   constructor(
     private livroService: LivroService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    console.log(this.activatedRoute.snapshot);
+    console.log(this.activatedRoute.snapshot.paramMap);
 
     if (id) {
       this.livroService.getLivroPorID(id).subscribe((livro) => {
@@ -28,5 +32,11 @@ export class EditarLivroComponent implements OnInit {
         console.log(this.livroASerEditado);
       });
     }
+  }
+
+  editarLivro(livro: Livro) {
+    this.livroService.putLivro(livro).subscribe(() => {
+      this.router.navigate(['lista-livros']);
+    });
   }
 }
