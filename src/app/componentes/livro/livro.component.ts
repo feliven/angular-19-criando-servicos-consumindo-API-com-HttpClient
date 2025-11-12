@@ -3,6 +3,7 @@ import { Component, input } from '@angular/core';
 
 import { Livro } from './livro';
 import { BotaoComponent } from '../botao/botao.component';
+import { LivroService } from '../../services/livro.service';
 
 @Component({
   selector: 'app-livro',
@@ -13,7 +14,18 @@ import { BotaoComponent } from '../botao/botao.component';
 export class LivroComponent {
   livro = input.required<Livro>();
 
-  alternarFavorito() {
-    this.livro().favorito = !this.livro().favorito;
+  constructor(private livroService: LivroService) {}
+
+  alternarFavoritoNaPagina() {
+    const livroAtualizado = {
+      ...this.livro(),
+      favorito: !this.livro().favorito,
+    };
+
+    this.livroService.setFavorito(livroAtualizado).subscribe(() => {
+      this.livro().favorito = livroAtualizado.favorito;
+    });
+
+    // this.livro().favorito = !this.livro().favorito;
   }
 }

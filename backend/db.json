@@ -9,7 +9,7 @@
         "id": "romance",
         "value": "Romance"
       },
-      "favorito": false
+      "favorito": true
     },
     {
       "id": "6deee",
@@ -108,7 +108,7 @@
         "id": "ficcao-cientifica",
         "value": "Ficção Científica"
       },
-      "favorito": false
+      "favorito": true
     },
     {
       "id": "lkjt43",
