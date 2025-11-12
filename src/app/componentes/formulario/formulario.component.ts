@@ -30,6 +30,7 @@ import { LivroService } from '../../services/livro.service';
 })
 export class FormularioComponent implements OnInit {
   enviarFormulario = output<Livro>();
+  livroASerEditado = input<Livro | null>(null);
 
   livroFormulario!: FormGroup;
   generos: GeneroLiterario[] = [];

@@ -1,1 +1,4 @@
-<app-formulario (enviarFormulario)="criarLivro($event)"></app-formulario>
+<app-formulario
+  [livroASerEditado]="null"
+  (enviarFormulario)="criarLivro($event)"
+></app-formulario>
