@@ -11,7 +11,7 @@ export class MensagemErroService {
   //   this.snackBar.open(message, action);
   // }
 
-  mostrarMensagemDeErro(mensagem: string) {
+  mostrarMensagemErro(mensagem: string) {
     const configuracoesSnackBar: MatSnackBarConfig = {
       duration: 10000,
       horizontalPosition: 'center',

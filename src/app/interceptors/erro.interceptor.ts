@@ -9,10 +9,19 @@ export const erroInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(req).pipe(
     catchError((erro: HttpErrorResponse) => {
-      const mensagemErro = 'OPSSS';
+      const mensagemErro = obterMensagemErro(erro.status);
       console.log(mensagemErro);
-      mensagemErroService.mostrarMensagemDeErro(mensagemErro);
+      mensagemErroService.mostrarMensagemErro(mensagemErro);
       return throwError(() => erro);
     })
   );
 };
+
+function obterMensagemErro(status: number) {
+  const listaMensagensErro: Record<number, string> = {
+    0: 'Erro de conexão. Verifique sua internet.',
+    404: 'O recurso solicitado não foi encontrado.',
+    500: 'Erro interno do servidor.',
+  };
+  return listaMensagensErro[status] || 'ERRO INESPERADO!!!';
+}
