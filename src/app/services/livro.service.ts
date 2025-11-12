@@ -28,6 +28,10 @@ export class LivroService implements OnInit {
     return this.http.get<Livro[]>(this.enderecoAPI);
   }
 
+  getLivroPorID(id: string): Observable<Livro> {
+    return this.http.get<Livro>(`${this.enderecoAPI}/${id}`);
+  }
+
   setLivro(livro: Livro): Observable<Livro> {
     return this.http.post<Livro>(this.enderecoAPI, livro);
   }
