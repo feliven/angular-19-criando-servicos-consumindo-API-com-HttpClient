@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 
-import { GeneroLiterario, Livro } from '../componentes/livro/livro';
+import { GeneroLiterario, Livro } from '../components/livro/livro';
 
 @Injectable({
   providedIn: 'root',

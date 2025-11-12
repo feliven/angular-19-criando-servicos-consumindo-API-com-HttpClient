@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, OnInit } from '@angular/core';
 
-import { BotaoComponent } from '../../componentes/botao/botao.component';
-import { DivisorComponent } from '../../componentes/divisor/divisor.component';
-import { EstadoVazioComponent } from '../../componentes/estado-vazio/estado-vazio.component';
-import { GeneroLiterario, Livro } from '../../componentes/livro/livro';
-import { LivroComponent } from '../../componentes/livro/livro.component';
-import { SubtituloComponent } from '../../componentes/subtitulo/subtitulo.component';
-import { TituloComponent } from '../../componentes/titulo/titulo.component';
+import { BotaoComponent } from '../../components/botao/botao.component';
+import { DivisorComponent } from '../../components/divisor/divisor.component';
+import { EstadoVazioComponent } from '../../components/estado-vazio/estado-vazio.component';
+import { GeneroLiterario, Livro } from '../../components/livro/livro';
+import { LivroComponent } from '../../components/livro/livro.component';
+import { SubtituloComponent } from '../../components/subtitulo/subtitulo.component';
+import { TituloComponent } from '../../components/titulo/titulo.component';
 import { LivroService } from '../../services/livro.service';
 import { Router } from '@angular/router';
 

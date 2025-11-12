@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 
-import { ListaLivrosComponent } from './paginas/lista-livros/lista-livros.component';
-import { CriarLivroComponent } from './paginas/criar-livro/criar-livro.component';
-import { EditarLivroComponent } from './paginas/editar-livro/editar-livro.component';
+import { ListaLivrosComponent } from './pages/lista-livros/lista-livros.component';
+import { CriarLivroComponent } from './pages/criar-livro/criar-livro.component';
+import { EditarLivroComponent } from './pages/editar-livro/editar-livro.component';
 
 export const routes: Routes = [
   {

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { FormularioComponent } from '../../componentes/formulario/formulario.component';
-import { Livro } from '../../componentes/livro/livro';
+import { FormularioComponent } from '../../components/formulario/formulario.component';
+import { Livro } from '../../components/livro/livro';
 import { LivroService } from '../../services/livro.service';
 
 @Component({
